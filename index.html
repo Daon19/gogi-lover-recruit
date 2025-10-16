@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고기러버 팀원 모집서</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <div class="a4-paper shadow-lg p-5 bg-white">
+      <h1 class="text-center fw-bold mb-4 text-primary">🌊 고기러버 팀원 모집 지원서 🍖</h1>
+      <p class="text-center text-muted mb-4">파도처럼 시원하고, 고기처럼 뜨거운 팀과 함께하세요!</p>
+
+      <form id="applyForm">
+        <div class="mb-3">
+          <label class="form-label">이름</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">나이</label>
+          <input type="number" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">성별</label>
+          <select class="form-select" required>
+            <option>남성</option>
+            <option>여성</option>
+            <option>기타</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">연락처</label>
+          <input type="tel" class="form-control" placeholder="010-0000-0000">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">이메일</label>
+          <input type="email" class="form-control" placeholder="example@email.com">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">지원 동기</label>
+          <textarea class="form-control" rows="5" placeholder="왜 고기러버 팀에 합류하고 싶은가요?" required></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary px-5 mt-3">제출하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 팝업 모달 -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body p-4">
+          <h3 class="text-primary fw-bold mb-3">🎉 지원 완료!</h3>
+          <p>고기러버 팀에 지원해주셔서 감사합니다!<br>결과는 이메일로 안내드릴 예정입니다.</p>
+          <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const form = document.getElementById('applyForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // 페이지 새로고침 방지
+      const modal = new bootstrap.Modal(document.getElementById('successModal'));
+      modal.show(); // 팝업 띄우기
+      form.reset(); // 폼 초기화
+    });
+  </script>
+</body>
+
+</html>
